@@ -18,7 +18,24 @@ railsアプリのインストール データベースはポスグレ
  gem 'twitter-bootstrap-rails'
 
 
-※いったんモデル・関係図を整理したほうがいいな。
+# githubの設定
+
+git init
+
+gitgub側でリポジトリを作る
+git remote -a git@github.com:skykataoka/daikadai3.git
+
+
+# herokuの設定
+
+herokuでリポジトリを作る
+
+heroku login
+heroku git:remote -a daikadai3
+
+
+
+# ※いったんモデル・関係図を整理したほうがいいな。
 
 
 
@@ -163,7 +180,7 @@ railsアプリのインストール データベースはポスグレ
     Userモデル ⇒  has_many :messages, dependent: :destroy
 
     Messsage ⇒   belongs_to :conversation
-                  belongs_to :user
+                  belongs_to :user, dependent: :destroy
 
 
 
@@ -239,7 +256,7 @@ railsアプリのインストール データベースはポスグレ
 
   他DIVE8の内容に沿って最適化
 
-  アプリケーションコントローラーで下記内容を追記。
+  ## アプリケーションコントローラーで下記内容を追記。
   nameカラムが新規登録とアカウント更新の際に、パラメータに含まれるようする。
 
     # before_actionで下で定義したメソッドを実行
@@ -256,15 +273,83 @@ railsアプリのインストール データベースはポスグレ
         devise_parameter_sanitizer.permit(:account_update, keys: PERMISSIBLE_ATTRIBUTES)
       end
 
+  ## ログインユーザーidが topicテーブルのuser_idに保存されるようにする。
+
+  topics_controller
+
+  def create
+    Blog.create(blogs_params)
+    @topic.user_id = current_user.id
+  end
+
+
 
 #  メーラーの設定
     gem 'letter_opener_web' を入れて諸々設定を行う
 
+    config/routes に下記設定を追記
+    if Rails.env.development?
+      mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    end
+
+    本番環境用のメール設定はひとまずheroku
+
+   環境変数でidパスワードを入れたほうが良いので
+   gem 'dotenv-rails'
+
+   .envの設定
 
 
+   rails g mailer NoticeMailer sendmail_blog
 
 
+   もろもろ・・・詳細はdive11参照
 
+  ## Mailerを呼び出すためのアクションを設定する
+
+  topiccontrollerを下記のように書き換える。
+
+
+    def create
+      @topic = Topic.new(topics_params)  ## 元々 Topic.create(topics_params) だった
+      @topic.user_id = current_user.id  ## 現在ログインしているユーザーidがuser_idカラムに保存されるようにする。
+      if @topic.save
+        redirect_to topics_path, notice: "ブログを作成しました！"
+        NoticeMailer.sendmail_topic(@topic).deliver
+      else
+        render 'new'
+      end
+    end
+
+  Userモデルのdevise欄に
+    :confirmable
+    を追加
+
+
+  rails g migration AddConfirmableToDevise
+
+  できたマイグレーションファイルに下記を追記
+
+  class AddConfirmableToDevise < ActiveRecord::Migration
+  def up
+    add_column :users, :confirmation_token, :string
+    add_column :users, :confirmed_at, :datetime
+    add_column :users, :confirmation_sent_at, :datetime
+    add_column :users, :unconfirmed_email, :string
+    add_index :users, :confirmation_token, unique: true
+    # User.reset_column_information # Need for some types of updates, but not for update_all.
+
+    execute("UPDATE users SET confirmed_at = NOW()")
+  end
+
+  def down
+    remove_columns :users, :confirmation_token, :confirmed_at, :confirmation_sent_at
+    remove_columns :users, :unconfirmed_email # Only if using reconfirmable
+  end
+end
+
+
+rake db:migrate
 
 
 

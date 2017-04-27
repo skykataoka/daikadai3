@@ -50,4 +50,7 @@ group :development, :test do
   gem 'better_errors'
 
   gem 'letter_opener_web'
+
+  gem 'dotenv-rails'
+  
 end

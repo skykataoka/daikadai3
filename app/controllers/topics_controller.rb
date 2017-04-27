@@ -13,8 +13,14 @@ before_action :authenticate_user!
   end
 
   def create
-    Topic.create(topics_params)
-    redirect_to topics_path
+    @topic = Topic.new(topics_params)
+    @topic.user_id = current_user.id
+    if @topic.save
+      redirect_to topics_path, notice: "ブログを作成しました！"
+      NoticeMailer.sendmail_topic(@topic).deliver
+    else
+      render 'new'
+    end
   end
 
   def edit
