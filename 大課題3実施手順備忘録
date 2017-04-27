@@ -1,0 +1,271 @@
+大課題3実施手順備忘録
+
+
+awsインスタンス作成 (dive20-2参照)
+13.112.120.169
+
+macローカル環境構築抜け漏れチェック(dive10)
+
+
+railsをインストール
+ gem install rails -v 4.2.3
+
+railsアプリのインストール データベースはポスグレ
+ rails _4.2.3_ new daikadai3 -d postgresql
+
+
+ブートストラップのインストール
+ gem 'twitter-bootstrap-rails'
+
+
+※いったんモデル・関係図を整理したほうがいいな。
+
+
+
+  まずモデルからいいらしい
+    rails g model topic
+
+  順序としては
+  User (devise使う)
+  Topic
+  Comment
+  Relationship
+  Conversation
+  Message
+
+
+## User
+  gemにdeviseを入れてバンドルインストール
+
+  rails generate devise:install
+  rails generate devise user
+
+  マイグレーションファイルに下記追記
+
+      ## SNSログイン
+      t.string :name
+      t.string :snsid, null: false, default: ""
+      t.string :snstype, null: false, default: ""
+      t.string :image_url
+
+      ↓他のadd_indexと並んでるところにあとで入れる。
+      add_index :users, [:snsid, :snstype], unique: true
+
+
+
+      rake db:migrate
+
+
+
+## Topic
+  rails g model topic
+
+  マイグレーションファイルに下記追記
+    t.references :user, foreign_key: true
+    t.string :title
+    t.text :content
+
+      rake db:migrate
+
+  アソシエーションを設定
+    topicモデル ⇒ belongs_to :user
+    userモデル ⇒ has_many :blogs
+
+## Comment
+  rails g model comment
+
+    マイグレーションファイルに下記追記
+    t.references :topic ,foreign_key: true
+    t.text :content
+
+
+    rake db:migrate
+
+
+  アソシエーションを設定
+    userモデル ⇒ has_many :topics, dependent: :destroy      ←上書き
+                  has_many :comments, dependent: :destroy
+
+    topicモデル ⇒ has_many :comments, dependent: :destroy
+
+    commentモデル⇒ belongs_to :user
+                    belongs_to :topic
+
+
+  ※親のモデルtopicだけでなく、その親のuserモデルにも設定するのが肝
+
+
+    URLはtopicと紐付くので入れ子にする。routesを設定
+      resources :topics do
+        resources :comments
+      end
+
+
+## Rerationship
+  rails g model rerationship
+
+    マイグレーションファイルに下記追記
+      t.integer :follower_id
+      t.integer :followed_id
+    end
+    add_index :relationships, :follower_id
+    add_index :relationships, :followed_id
+    add_index :relationships, [:follower_id, :followed_id], unique: true
+
+        rake db:migrate
+
+
+    アソシエーションを設定
+
+    Userモデル ⇒   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+                    has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
+                              ↑任意の名前でOK わかりやすくするために1つめのと分けた             ↑このモデルに紐つくことを明示
+
+    Relationshipモデル ⇒    belongs_to :follower, class_name: "User"
+                             belongs_to :followed, class_name: "User"
+                              ↑どちらもUserテーブルにbelongs_to してますが,ひもついてるカラムが違う(user_idではない)のでこのように標記。
+
+    # Userモデルがrelationshipsモデルを通じて複数のUserを所持することを定義
+    Userモデル ⇒      has_many :followed_users, through: :relationships, source: :followed
+                       has_many :followers, through: :reverse_relationships, source: :follower
+
+
+## Conversation
+
+    ルーティングの設定
+    resources :conversations do
+      resources :messages
+    end
+
+    モデルの作成
+    rails g model conversation
+
+      t.integer :sender_id
+      t.integer :receiver_id
+
+    アソシエーションの設定
+
+    Conversationモデル ⇒   belongs_to :sender, foreign_key: :sender_id, class_name: 'User'
+                            belongs_to :receiver, foreign_key: :receiver_id, class_name: 'User'
+
+    Userモデル ⇒  has_many :senders, foreign_key: "sender_id", dependent: :destroy, class_name: "Conversation"
+                   has_many :receivers, foreign_key: "receiver_id", dependent: :destroy, class_name: "Conversation"
+
+
+## Message
+
+    モデルの作成
+    rails g model message body:text conversation:references user:references read:boolean
+
+
+    Conversationモデル ⇒   has_many :messages, dependent: :destroy
+
+    Userモデル ⇒  has_many :messages, dependent: :destroy
+
+    Messsage ⇒   belongs_to :conversation
+                  belongs_to :user
+
+
+
+# 基本となるtopicコントローラーをつくろう
+
+   ## topicsコントローラー
+
+   rails g controller index new
+
+
+  newの画面でpostするとcreateが走る
+  パラーメーターという箱がある
+  パラメーターの中身を利用するためには関数を専用に設定する必要がある⇒ストロングパラメーター
+
+
+  redirect_toの利用例
+  redirect_to :action => "show" # showアクションにリダイレクト
+  redirect_to 'http://diveintocode.jp/' # diveintocode.jpページにリダイレクト
+  redirect_to controller: :blogs, action: :new #blogsコントローラのnewアクションにリダイレクト
+
+  まずindex new createをつくる。
+
+  次にedit updateをつくり
+
+  destroy
+  detoroyメソッドはupdateと違ってパラメーターは不要
+  例 @topic.update(ストロングパラメーター)
+     @topic.destroy(ストロングパラメーター)
+
+
+  最後showを作る
+  editと似ている
+
+
+  noteiceメソッドでボタンを押したときに通知ができる
+
+
+  バリデーションを設定する
+
+  topicモデルに下記を追記 titleカラムが空の値で登録されるのを防ぐ
+   validates :title, presence: true
+
+
+  # トップページが　topics/indexになるようにする
+  root 'topics#index'
+
+
+# ブートストラップインストール
+
+  gem 'twitter-bootstrap-rails'
+  でバンドルインストールした後
+
+  rails generate bootstrap:install static
+
+
+
+# ユーザーログイン機能を追加する
+
+  rails generate devise:views
+  で必要なviewを用意する。
+
+  日本語化する
+  config/application.rb
+  の
+  # config.i18n.default_locale = :de
+  ↓
+  config.i18n.default_locale = :ja
+
+
+  そしてconfig/locales/devise.ja.ymlファイルを作って
+  https://gist.github.com/kaorumori/7276cec9c2d15940a3d93c6fc
+  の内容をコピー
+
+  他DIVE8の内容に沿って最適化
+
+  アプリケーションコントローラーで下記内容を追記。
+  nameカラムが新規登録とアカウント更新の際に、パラメータに含まれるようする。
+
+    # before_actionで下で定義したメソッドを実行
+    before_action :configure_permitted_parameters, if: :devise_controller?
+
+    #変数PERMISSIBLE_ATTRIBUTESに配列[:name]を代入
+    PERMISSIBLE_ATTRIBUTES = %i(name)
+
+    protected
+
+      #deviseのストロングパラメーターにカラム追加するメソッドを定義
+      def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: PERMISSIBLE_ATTRIBUTES)
+        devise_parameter_sanitizer.permit(:account_update, keys: PERMISSIBLE_ATTRIBUTES)
+      end
+
+
+#  メーラーの設定
+    gem 'letter_opener_web' を入れて諸々設定を行う
+
+
+
+
+
+
+
+
+
+

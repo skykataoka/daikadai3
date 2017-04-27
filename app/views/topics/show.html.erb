@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Topics詳細</h1>
+  <hr>
+  <p>投稿者:<%= @topic.user.name %> </p>
+  <p>タイトル:<%= @topic.title %></p>
+  <p>内容:<%= @topic.content %></p>
+  <p>作成日時:<%= @topic.created_at.strftime("%y/%m/%d %p %l:%M")  %></p>
+  <p>更新日時:<%= @topic.updated_at.strftime("%y/%m/%d %p %l:%M")  %></p>
+  <%= link_to "編集", edit_topic_path(@topic.id) %>
+  <%= link_to "削除", topic_path(@topic.id), method: :delete  %>
+<hr>
+
+<%= link_to "一覧に戻る", topics_path %>

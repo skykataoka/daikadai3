@@ -1,0 +1,162 @@
+TopicsController	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^class TopicsController < ApplicationController$/;"	class	line:1
+index	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^  def index$/;"	method	line:2	class:TopicsController
+show	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^  def show$/;"	method	line:6	class:TopicsController
+new	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^  def new$/;"	method	line:10	class:TopicsController
+create	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^  def create$/;"	method	line:14	class:TopicsController
+edit	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^  def edit$/;"	method	line:19	class:TopicsController
+update	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^  def update$/;"	method	line:23	class:TopicsController
+destroy	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^  def destroy$/;"	method	line:29	class:TopicsController
+topics_params	/Users/skykataoka/dic/daikadai/daikadai3/app/controllers/topics_controller.rb	/^  def topics_params$/;"	method	line:36	class:TopicsController
+en	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^en:$/;"	function	line:3
+devise	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^  devise:$/;"	function	line:4
+confirmations	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    confirmations:$/;"	function	line:5
+confirmed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      confirmed: "Your email address has been successfully confirmed."$/;"	function	line:6
+send_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."$/;"	function	line:7
+send_paranoid_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."$/;"	function	line:8
+failure	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    failure:$/;"	function	line:9
+already_authenticated	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      already_authenticated: "You are already signed in."$/;"	function	line:10
+inactive	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      inactive: "Your account is not activated yet."$/;"	function	line:11
+invalid	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      invalid: "Invalid %{authentication_keys} or password."$/;"	function	line:12
+locked	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      locked: "Your account is locked."$/;"	function	line:13
+last_attempt	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      last_attempt: "You have one more attempt before your account is locked."$/;"	function	line:14
+not_found_in_database	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      not_found_in_database: "Invalid %{authentication_keys} or password."$/;"	function	line:15
+timeout	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      timeout: "Your session expired. Please sign in again to continue."$/;"	function	line:16
+unauthenticated	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      unauthenticated: "You need to sign in or sign up before continuing."$/;"	function	line:17
+unconfirmed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      unconfirmed: "You have to confirm your email address before continuing."$/;"	function	line:18
+mailer	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    mailer:$/;"	function	line:19
+confirmation_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      confirmation_instructions:$/;"	function	line:20
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^        subject: "Confirmation instructions"$/;"	function	line:21
+reset_password_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      reset_password_instructions:$/;"	function	line:22
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^        subject: "Reset password instructions"$/;"	function	line:23
+unlock_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      unlock_instructions:$/;"	function	line:24
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^        subject: "Unlock instructions"$/;"	function	line:25
+email_changed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      email_changed:$/;"	function	line:26
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^        subject: "Email Changed"$/;"	function	line:27
+password_change	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      password_change:$/;"	function	line:28
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^        subject: "Password Changed"$/;"	function	line:29
+omniauth_callbacks	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    omniauth_callbacks:$/;"	function	line:30
+failure	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      failure: "Could not authenticate you from %{kind} because \\"%{reason}\\"."$/;"	function	line:31
+success	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      success: "Successfully authenticated from %{kind} account."$/;"	function	line:32
+passwords	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    passwords:$/;"	function	line:33
+no_token	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."$/;"	function	line:34
+send_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."$/;"	function	line:35
+send_paranoid_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."$/;"	function	line:36
+updated	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      updated: "Your password has been changed successfully. You are now signed in."$/;"	function	line:37
+updated_not_active	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      updated_not_active: "Your password has been changed successfully."$/;"	function	line:38
+registrations	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    registrations:$/;"	function	line:39
+destroyed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."$/;"	function	line:40
+signed_up	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      signed_up: "Welcome! You have signed up successfully."$/;"	function	line:41
+signed_up_but_inactive	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."$/;"	function	line:42
+signed_up_but_locked	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."$/;"	function	line:43
+signed_up_but_unconfirmed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."$/;"	function	line:44
+update_needs_confirmation	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."$/;"	function	line:45
+updated	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      updated: "Your account has been updated successfully."$/;"	function	line:46
+sessions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    sessions:$/;"	function	line:47
+signed_in	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      signed_in: "Signed in successfully."$/;"	function	line:48
+signed_out	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      signed_out: "Signed out successfully."$/;"	function	line:49
+already_signed_out	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      already_signed_out: "Signed out successfully."$/;"	function	line:50
+unlocks	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    unlocks:$/;"	function	line:51
+send_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."$/;"	function	line:52
+send_paranoid_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."$/;"	function	line:53
+unlocked	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      unlocked: "Your account has been unlocked successfully. Please sign in to continue."$/;"	function	line:54
+errors	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^  errors:$/;"	function	line:55
+messages	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^    messages:$/;"	function	line:56
+already_confirmed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      already_confirmed: "was already confirmed, please try signing in"$/;"	function	line:57
+confirmation_period_expired	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"$/;"	function	line:58
+expired	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      expired: "has expired, please request a new one"$/;"	function	line:59
+not_found	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      not_found: "not found"$/;"	function	line:60
+not_locked	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      not_locked: "was not locked"$/;"	function	line:61
+not_saved	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^      not_saved:$/;"	function	line:62
+one	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^        one: "1 error prohibited this %{resource} from being saved:"$/;"	function	line:63
+other	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.en.yml	/^        other: "%{count} errors prohibited this %{resource} from being saved:"$/;"	function	line:64
+ja	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^ja:$/;"	function	line:3
+devise	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^  devise:$/;"	function	line:4
+confirmations	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    confirmations:$/;"	function	line:5
+confirmed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      confirmed: 'アカウントを登録しました。'$/;"	function	line:6
+send_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      send_instructions: 'アカウントの有効化について数分以内にメールでご連絡します。'$/;"	function	line:7
+send_paranoid_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。"$/;"	function	line:8
+failure	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    failure:$/;"	function	line:9
+already_authenticated	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      already_authenticated: 'すでにログインしています。'$/;"	function	line:10
+inactive	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      inactive: 'アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。'$/;"	function	line:11
+invalid	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      invalid: "%{authentication_keys} もしくはパスワードが不正です。"$/;"	function	line:12
+locked	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      locked: 'あなたのアカウントは凍結されています。'$/;"	function	line:13
+last_attempt	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      last_attempt: 'あなたのアカウントが凍結される前に、複数回の操作がおこなわれています。'$/;"	function	line:14
+not_found_in_database	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      not_found_in_database: "%{authentication_keys} もしくはパスワードが不正です。"$/;"	function	line:15
+timeout	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'$/;"	function	line:16
+unauthenticated	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      unauthenticated: 'アカウント登録もしくはログインしてください。'$/;"	function	line:17
+unconfirmed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      unconfirmed: 'メールアドレスの本人確認が必要です。'$/;"	function	line:18
+mailer	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    mailer:$/;"	function	line:19
+confirmation_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      confirmation_instructions:$/;"	function	line:20
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^        subject: 'アカウントの有効化について'$/;"	function	line:21
+reset_password_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      reset_password_instructions:$/;"	function	line:22
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^        subject: 'パスワードの再設定について'$/;"	function	line:23
+unlock_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      unlock_instructions:$/;"	function	line:24
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^        subject: 'アカウントの凍結解除について'$/;"	function	line:25
+password_change	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      password_change:$/;"	function	line:26
+subject	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^        subject: 'パスワードの変更について'$/;"	function	line:27
+omniauth_callbacks	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    omniauth_callbacks:$/;"	function	line:28
+failure	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      failure: "%{kind} アカウントによる認証に失敗しました。理由：（%{reason}）"$/;"	function	line:29
+success	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      success: "%{kind} アカウントによる認証に成功しました。"$/;"	function	line:30
+passwords	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    passwords:$/;"	function	line:31
+no_token	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      no_token: "このページにはアクセスできません。パスワード再設定メールのリンクからアクセスされた場合には、URL をご確認ください。"$/;"	function	line:32
+send_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      send_instructions: 'パスワードの再設定について数分以内にメールでご連絡いたします。'$/;"	function	line:33
+send_paranoid_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、パスワード再設定用のメールが数分以内に送信されます。"$/;"	function	line:34
+updated	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      updated: 'パスワードが正しく変更されました。'$/;"	function	line:35
+updated_not_active	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      updated_not_active: 'パスワードが正しく変更されました。'$/;"	function	line:36
+registrations	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    registrations:$/;"	function	line:37
+destroyed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'$/;"	function	line:38
+signed_up	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      signed_up: 'アカウント登録が完了しました。'$/;"	function	line:39
+signed_up_but_inactive	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      signed_up_but_inactive: 'ログインするためには、アカウントを有効化してください。'$/;"	function	line:40
+signed_up_but_locked	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      signed_up_but_locked: 'アカウントが凍結されているためログインできません。'$/;"	function	line:41
+signed_up_but_unconfirmed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      signed_up_but_unconfirmed: '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'$/;"	function	line:42
+update_needs_confirmation	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      update_needs_confirmation: 'アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。'$/;"	function	line:43
+updated	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      updated: 'アカウント情報を変更しました。'$/;"	function	line:44
+sessions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    sessions:$/;"	function	line:45
+signed_in	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      signed_in: 'ログインしました。'$/;"	function	line:46
+signed_out	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      signed_out: 'ログアウトしました。'$/;"	function	line:47
+already_signed_out	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      already_signed_out: '既にログアウト済みです。'$/;"	function	line:48
+unlocks	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    unlocks:$/;"	function	line:49
+send_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'$/;"	function	line:50
+send_paranoid_instructions	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'$/;"	function	line:51
+unlocked	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      unlocked: 'アカウントを凍結解除しました。'$/;"	function	line:52
+errors	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^  errors:$/;"	function	line:53
+messages	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^    messages:$/;"	function	line:54
+already_confirmed	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      already_confirmed: 'は既に登録済みです。ログインしてください。'$/;"	function	line:55
+confirmation_period_expired	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。"$/;"	function	line:56
+expired	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      expired: 'の有効期限が切れました。新しくリクエストしてください。'$/;"	function	line:57
+not_found	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      not_found: 'は見つかりませんでした。'$/;"	function	line:58
+not_locked	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      not_locked: 'は凍結されていません。'$/;"	function	line:59
+not_saved	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^      not_saved:$/;"	function	line:60
+one	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^        one: "エラーが発生したため %{resource} は保存されませんでした:"$/;"	function	line:61
+other	/Users/skykataoka/dic/daikadai/daikadai3/config/locales/devise.ja.yml	/^        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"$/;"	function	line:62
+Daikadai3	/Users/skykataoka/dic/daikadai/daikadai3/config/application.rb	/^module Daikadai3$/;"	module	line:9
+Application	/Users/skykataoka/dic/daikadai/daikadai3/config/application.rb	/^  class Application < Rails::Application$/;"	class	line:10	class:Daikadai3
+EditColumnToUser	/Users/skykataoka/dic/daikadai/daikadai3/db/migrate/20170427054147_edit_column_to_user.rb	/^class EditColumnToUser < ActiveRecord::Migration$/;"	class	line:1
+change	/Users/skykataoka/dic/daikadai/daikadai3/db/migrate/20170427054147_edit_column_to_user.rb	/^  def change$/;"	method	line:2	class:EditColumnToUser
+header	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^header {$/;"	function	line:1
+.navbar-default	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.navbar-default {$/;"	function	line:7
+.navbar	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.navbar {$/;"	function	line:10
+.navbar-default	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.navbar-default {$/;"	function	line:15
+.navbar-brand	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^  .navbar-brand {$/;"	function	line:16
+&:hover	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^    &:hover {$/;"	function	line:18
+.navbar-nav > li > a	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^  .navbar-nav > li > a {$/;"	function	line:22
+&:hover, &:focus	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^    &:hover, &:focus {$/;"	function	line:24
+.navbar-nav > .open > a	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^  .navbar-nav > .open > a {$/;"	function	line:28
+&:hover, &:focus	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^    &:hover, &:focus {$/;"	function	line:31
+@media (max-width: 767px)	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^@media (max-width: 767px) {$/;"	function	line:37
+.navbar-default .navbar-nav .open .dropdown-menu > li > a	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.navbar-default .navbar-nav .open .dropdown-menu > li > a {$/;"	function	line:38
+&:hover, &:focus	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^    &:hover, &:focus {$/;"	function	line:41
+.navbar-default .navbar-toggle	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^  .navbar-default .navbar-toggle {$/;"	function	line:45
+&:hover, &:focus	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^    &:hover, &:focus {$/;"	function	line:47
+.main-header	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.main-header {$/;"	function	line:53
+.main-header img	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.main-header img {$/;"	function	line:60
+.about	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.about {$/;"	function	line:67
+.function	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.function {$/;"	function	line:73
+footer	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^footer {$/;"	function	line:81
+html	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^html {$/;"	function	line:93
+body	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^body {$/;"	function	line:98
+.main-header	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.main-header {$/;"	function	line:103
+.page-top-btn	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.page-top-btn {$/;"	function	line:112
+a	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^  a {$/;"	function	line:124
+&:hover	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^  &:hover {$/;"	function	line:130
+.flash	/Users/skykataoka/dic/daikadai/daikadai3/app/assets/stylesheets/application.css	/^.flash {$/;"	function	line:135
