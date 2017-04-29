@@ -174,6 +174,9 @@ heroku git:remote -a daikadai3
     モデルの作成
     rails g model message body:text conversation:references user:references read:boolean
 
+    t.boolean :read, default: false   ##←初期状態で未読と登録する
+    とすること。
+
 
     Conversationモデル ⇒   has_many :messages, dependent: :destroy
 
@@ -812,31 +815,93 @@ config/initializers/devise.rb
 
 
 #メッセージ機能の実装
-  コントローラー作成
+  会話コントローラー作成
     rails g controller Conversations index create
     不要なルーティング削除
 
-すべての会話を表示させる
-    def index
-      @users = User.all   ##←ここも必要なのかー。
-      @conversations = Conversation.all
-    end
 
-    def create
-      if Conversation.between(params[:sender_id], params[:recipient_id]).present?      ←もし会話がすでに存在しているなら
-        @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first  ←既にある会話レコードのデータをインスタンス化
-      else
-        @conversation = Conversation.create!(conversation_params)
+    before_action :authenticate_user!
+        def index
+          @users = User.all   ##←ここも必要なのかー。
+          @conversations = Conversation.all
+        end
+
+        def create
+          if Conversation.between(params[:sender_id], params[:receiver_id]).present?      ←もし会話がすでに存在しているなら
+            @conversation = Conversation.between(params[:sender_id], params[:receiver_id]).first  ←既にある会話レコードのデータをインスタンス化
+          else
+            @conversation = Conversation.create!(conversation_params)
+          end
+
+          redirect_to conversation_messages_path(@conversation)
+        end
+
+
+        private
+          def conversation_params
+            params.permit(:sender_id, :receiver_id)
+          end
+
+  Conversationモデルにメッソドを定義
+
+      validates_uniqueness_of :sender_id, scope: :receiver_id
+      scope :between, -> (sender_id,recipient_id) do
+        where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND  conversations.recipient_id =?)", sender_id,receiver_id, receiver_id, sender_id)
       end
 
-      redirect_to conversation_messages_path(@conversation)
-    end
-
-
-    private
-      def conversation_params
-        params.permit(:sender_id, :recipient_id)
+      def target_user(current_user)
+          if sender_id == current_user.id
+            User.find(receiver_id)
+          elsif receiver_id == current_user.id
+            User.find(sender_id)
+          end
+        end
       end
 
+  メッセージコントローラー作成
+
+      before_action do
+        @conversation = Conversation.find(params[:conversation_id])
+      end
+
+  readカラムの初期設定が抜けてたので追加
+
+  マイグレーションファイルに下記を入れて、rake db:migrate
+
+    change_column :messages, :read, :boolean, default: false
+
+
+  ビューの設定
+   場所 app/views/conversations/index.html.erb
+
+    <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+      <table class="table table-hover">
+        <thead>
+          <h2>メッセージ一覧</h2>
+        </thead>
+        <tbody>
+          <% @conversations.each do |conversation| %>
+            <td>
+              <% if conversation.target_user(current_user).present? %>
+                <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+              <% end %>
+            </td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+    場所  app/views/users/index.html.erb
+
+        <% if user.id != current_user.id %>
+      <li>
+        <div class="item">
+          <%= link_to user.name, user %>
+          <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, receiver_id: user.id), method: 'post'%>
+        </div>
+        <%= render partial: 'follow_form', locals: { user: user } if signed_in?   %>
+      </li>
+    <% end %>
 
 

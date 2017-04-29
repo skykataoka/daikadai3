@@ -27,6 +27,7 @@
             <li><%= link_to "投稿一覧", topics_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
+              <li><%= link_to "メッセージ", conversations_path %></li>
               <li><%= link_to 'マイページ', edit_user_registration_path %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>

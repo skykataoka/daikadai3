@@ -1,0 +1,42 @@
+疑問点
+
+ブートストラップが効かない・・・
+
+なぞのエラーでrails s できない。
+An error occurred while installing rmagick (2.16.0), and Bundler cannot continue.
+Make sure that `gem install rmagick -v '2.16.0'` succeeds before bundling.
+
+
+コメントの投稿がうまくいかない
+  undefined method `name' for nil:NilClass
+      <p class="left"><%= comment.user.name %>さんがコメントしました。</p>
+  で引っかかる。
+
+  コメントコントローラーをくまなく見たけど問題ない。
+  原因はcomment.user = nil
+  になっていて値がうまくわたってないことっぽい。
+
+
+  current_user.follow!(@user)   ←!ってなに?
+
+
+モデルとヘルパーとコントローラーに関数書くのってそれぞれ何が違うの??
+
+フォロー機能
+  create!
+  find_by
+
+とは?
+
+メッセージ機能
+  betweenとは?   ←オリジナルで定義したもの
+
+  target_userでエラー発生・・・←モデルに記載したメソッドが間違い。
+    カラムをrecipient_id → receiver_id に変更したことが原因。関連ソースコードを置換して解決。
+
+
+
+AWSデプロイ
+  gem 'fog'  って何?
+
+AWS E3のアクセスキーってどのストレージも共通??
