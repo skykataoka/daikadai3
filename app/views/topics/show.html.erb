@@ -1,14 +1,30 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Topics詳細</h1>
-  <hr>
-  <p>投稿者:<%= @topic.user.name %> </p>
-  <p>タイトル:<%= @topic.title %></p>
-  <p>内容:<%= @topic.content %></p>
-  <p>作成日時:<%= @topic.created_at.strftime("%y/%m/%d %p %l:%M")  %></p>
-  <p>更新日時:<%= @topic.updated_at.strftime("%y/%m/%d %p %l:%M")  %></p>
-  <%= link_to "編集", edit_topic_path(@topic.id) %>
-  <%= link_to "削除", topic_path(@topic.id), method: :delete  %>
-<hr>
-
-<%= link_to "一覧に戻る", topics_path %>
+<div class="child row">
+  <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <div class="blog-text">
+      <p class="left"><strong>投稿者</strong></p>
+      <p class="left"><%= @topic.user.name %> </p>
+      <p class="left"><strong>タイトル</strong></p>
+      <p class="left"><%= @topic.title %></p>
+      <p class="left"><strong>内容</strong></p>
+      <p class="left"><%= @topic.content %></p>
+      <p class="right">
+        <strong>作成時間:</strong>
+        <%= @topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
+      </p>
+      <p><%= link_to "編集", edit_topic_path(@topic.id) %>
+      <%= link_to "削除", topic_path(@topic.id), method: :delete  %></p>
+      <p><%= link_to "一覧に戻る", topics_path %><p>
+    <hr>
+    </div>
+    <p>コメント一覧</p>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
+    </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
+    <% if current_user.id == @topic.user_id %>
+      <%= link_to '編集', edit_topic_path(@topic) %> |
+    <% end %>
+    <%= link_to '戻る', topics_path %>
+    </div>
+    </div>

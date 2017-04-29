@@ -6,6 +6,8 @@ before_action :authenticate_user!
 
   def show
     @topic = Topic.find(params[:id])
+    @comment = @topic.comments.build  ##←当該トピックに関連する空のコメントインストールを作ってる。
+    @comments = @topic.comments  ##←当該トピックに関連するすべてのコメントをインスタンス化
   end
 
   def new
