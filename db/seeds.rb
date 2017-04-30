@@ -1,10 +1,4 @@
 require 'csv'
-CSV.foreach('db/facebook.csv') do |row|
-  Topic.create(user_id: row[0],
-               title: row[1],
-               content: row[2])
-  sleep(1)
-end
 
 # User
 20.times do
@@ -35,4 +29,11 @@ end
     topic_id: topic_id,
     content: content
   )
+end
+
+CSV.foreach('db/facebook.csv') do |row|
+  Topic.create(user_id: row[0],
+               title: row[1],
+               content: row[2])
+  sleep(1)
 end
