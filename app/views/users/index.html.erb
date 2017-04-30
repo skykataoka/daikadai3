@@ -10,7 +10,7 @@
       <% if user.id != current_user.id %>
         <li>
           <div class="item">
-            <%= link_to user.name, user %>
+            <%= user.name %>
             <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, receiver_id: user.id), method: 'post'%>
           </div>
           <%= render partial: 'follow_form', locals: { user: user } if signed_in?   %>

@@ -1,6 +1,7 @@
 疑問点
 
 ブートストラップが効かない・・・
+  →application.cssの
 
 なぞのエラーでrails s できない。
 An error occurred while installing rmagick (2.16.0), and Bundler cannot continue.
@@ -16,7 +17,7 @@ Make sure that `gem install rmagick -v '2.16.0'` succeeds before bundling.
   原因はcomment.user = nil
   になっていて値がうまくわたってないことっぽい。
 
-  user&.name  ←トライメソッド
+  user&.name  ←トライメソッド nilの時も自動的に変換するメソッド あとでググろう。
 
 
 
@@ -50,5 +51,4 @@ AWS E3のアクセスキーってどのストレージも共通??
 メッセージ作成のviewがないのでつくる
 
 
-
-0916655dbb33382e4123faea9889c0b49040a1d8dcb87094176ba990859f9ea7b0432120d25278931c68217286145279502984b981f1b4c3137cef5b5d5b13f2
+詰まる時
