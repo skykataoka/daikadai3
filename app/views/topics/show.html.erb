@@ -12,8 +12,10 @@
         <strong>作成時間:</strong>
         <%= @topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
       </p>
-      <p><%= link_to "編集", edit_topic_path(@topic.id) %>
-      <%= link_to "削除", topic_path(@topic.id), method: :delete  %></p>
+      <% if current_user.id == @topic.user_id %>
+        <p class="btn btn-success"><%= link_to "編集", edit_topic_path(@topic.id) %></p>
+        <p class="btn btn-danger"><%= link_to "削除", topic_path(@topic.id), method: :delete  %></p>
+      <% end %>
       <p><%= link_to "一覧に戻る", topics_path %><p>
     <hr>
     </div>
@@ -22,9 +24,5 @@
       <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
     </div>
     <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
-    <% if current_user.id == @topic.user_id %>
-      <%= link_to '編集', edit_topic_path(@topic) %> |
-    <% end %>
-    <%= link_to '戻る', topics_path %>
     </div>
     </div>

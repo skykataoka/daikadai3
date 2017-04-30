@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   # コメントを保存、投稿するためのアクションです。
   def create
     # Topicをパラメータの値から探し出し,Topicに紐づくcommentsとしてbuildします。
-    @comment = current_user.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
     @topic = @comment.topic
     # クライアント要求に応じてフォーマットを変更
     respond_to do |format|
@@ -12,6 +13,35 @@ class CommentsController < ApplicationController
         format.js { render :index }
       else
         format.html { render :new }
+      end
+    end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @topic = @comment.topic
+      if @comment.update(comment_params)
+        redirect_to topic_path(@topic), notice: 'コメントを更新しました。'
+        else
+        render :new
+      end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    respond_to do |format|
+      if @comment.destroy
+        format.json { render :show, status: :created, location: @comment }
+        #JS形式でレスポンスを返します。
+        format.js { render :index }
+        else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
