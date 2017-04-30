@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: "topics#index"
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
 
   resources :topics do
     resources :comments

@@ -16,6 +16,10 @@ Make sure that `gem install rmagick -v '2.16.0'` succeeds before bundling.
   原因はcomment.user = nil
   になっていて値がうまくわたってないことっぽい。
 
+  user&.name  ←トライメソッド
+
+
+
 
   current_user.follow!(@user)   ←!ってなに?
 
@@ -40,3 +44,11 @@ AWSデプロイ
   gem 'fog'  って何?
 
 AWS E3のアクセスキーってどのストレージも共通??
+
+
+
+メッセージ作成のviewがないのでつくる
+
+
+
+0916655dbb33382e4123faea9889c0b49040a1d8dcb87094176ba990859f9ea7b0432120d25278931c68217286145279502984b981f1b4c3137cef5b5d5b13f2

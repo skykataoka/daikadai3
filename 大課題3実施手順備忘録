@@ -845,8 +845,8 @@ config/initializers/devise.rb
   Conversationモデルにメッソドを定義
 
       validates_uniqueness_of :sender_id, scope: :receiver_id
-      scope :between, -> (sender_id,recipient_id) do
-        where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND  conversations.recipient_id =?)", sender_id,receiver_id, receiver_id, sender_id)
+      scope :between, -> (sender_id,receiver_id) do
+        where("(conversations.sender_id = ? AND conversations.receiver_id =?) OR (conversations.sender_id = ? AND  conversations.receiver_id =?)", sender_id,receiver_id, receiver_id, sender_id)
       end
 
       def target_user(current_user)
@@ -855,6 +855,18 @@ config/initializers/devise.rb
           elsif receiver_id == current_user.id
             User.find(sender_id)
           end
+        end
+      end
+
+
+  メッセージモデルにバリデーションとメソッドを記載
+      class Message < ActiveRecord::Base
+        belongs_to :conversation
+        belongs_to :user
+
+        validates_presence_of :body, :conversation_id, :user_id
+        def message_time
+          created_at.strftime("%m/%d/%y at %l:%M %p")
         end
       end
 
@@ -911,4 +923,3 @@ AWSデプロイ
 
 
   ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFy3os046RGn38wVoLmFsXwvndX47/i7MLImKfq7VenZEXrnU2eQ9/ARO/aZU3mK8gfAlmArzZ/yAdHmotrShc9QJgMrMO6j8UcRCegAAVZthPAfzwoYSKmESm86gHjEu43tLNHoCUXUuEdOEmRnNaWL9vsS3Aud6DzPVbfAY+Qc5/magNyDcKSvTjUs3ZIkRfAJ8npjr7DiIJH6wLpsXNLeqEArGmKTa8v7kgdwSR8QQFXy9P6KgUtxgTK4aCsiS63UVWlxYTJ+TkQsvXTTCXaDA7pfrETJtfjXmAZrp1zXCsXq9sRP37d/0Nph5d5wcx/BIAy9cqqOaNcFwio5JN app@ip-172-31-27-164
-

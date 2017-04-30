@@ -5,8 +5,8 @@ class Conversation < ActiveRecord::Base
   has_many :messages, dependent: :destroy
 
   validates_uniqueness_of :sender_id, scope: :receiver_id
-  scope :between, -> (sender_id,recipient_id) do
-    where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND  conversations.recipient_id =?)", sender_id,receiver_id, receiver_id, sender_id)
+  scope :between, -> (sender_id,receiver_id) do
+    where("(conversations.sender_id = ? AND conversations.receiver_id =?) OR (conversations.sender_id = ? AND  conversations.receiver_id =?)", sender_id,receiver_id, receiver_id, sender_id)
   end
 
   def target_user(current_user)
