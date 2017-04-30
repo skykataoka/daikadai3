@@ -905,3 +905,10 @@ config/initializers/devise.rb
     <% end %>
 
 
+AWSデプロイ
+
+  ssh -i achieve-key.pem app@13.112.120.169
+
+
+  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFy3os046RGn38wVoLmFsXwvndX47/i7MLImKfq7VenZEXrnU2eQ9/ARO/aZU3mK8gfAlmArzZ/yAdHmotrShc9QJgMrMO6j8UcRCegAAVZthPAfzwoYSKmESm86gHjEu43tLNHoCUXUuEdOEmRnNaWL9vsS3Aud6DzPVbfAY+Qc5/magNyDcKSvTjUs3ZIkRfAJ8npjr7DiIJH6wLpsXNLeqEArGmKTa8v7kgdwSR8QQFXy9P6KgUtxgTK4aCsiS63UVWlxYTJ+TkQsvXTTCXaDA7pfrETJtfjXmAZrp1zXCsXq9sRP37d/0Nph5d5wcx/BIAy9cqqOaNcFwio5JN app@ip-172-31-27-164
+
